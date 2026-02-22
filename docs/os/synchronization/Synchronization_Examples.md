@@ -133,7 +133,7 @@ Java에서는 CashBox 같은 공유 객체 인스턴스(buffer)를 생산자와 
   > 어떤 스레드를 깨울지는 JVM 구현과 스케줄러 정책에 따라 달라지며, 특정 스레드를 지정할 수는 없다.  
   원하는 스레드만 깨우고 싶을 때는 `Condition`을 사용
 
-```text
+```java
 class CashBox {
     int[] buffer;   // 버퍼 크기
     int count;  // in, out 추적이 번거로우니 증감으로 확인
@@ -210,7 +210,7 @@ Reader는 먼저 wait(mutex)로 read_count 수정 권한을 얻고 read_count를
 읽기가 끝나면 다시 wait(mutex)로 권한을 얻어 read_count를 1 감소시키고, 마지막 Reader(read_count == 0)라면 signal(rw_mutex)를 호출해 Writer에게 접근을
 허용한다.
 
-```text
+```java
 while (true) {
     wait(mutex);
     read_count++;
