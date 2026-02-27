@@ -65,8 +65,7 @@
 > 은행원 알고리즘은 Safe State를 유지하기 위한 자원 할당 알고리즘  
 > 시스템이 안전하게 처리할 수 있는 범위 내에서만 자원을 할당
 
-Safety Algorithm
-
+**Safety Algorithm**  
 현재 상태가 Safe State인지 확인하는 알고리즘이다. Safe Sequence를 찾을 수 있으면 Safe State, 없으면 Unsafe State다.
 
 ### Deadlock Detection
@@ -74,14 +73,15 @@ Safety Algorithm
 데드락 발생을 허용하되, 주기적으로 탐지 알고리즘을 실행해 데드락을 발견하면 복구하는 방법이다.  
 탐지 알고리즘을 실행하는 빈도는 데드락의 발생 빈도와 스레드의 수에 따라 달라진다.
 
-탐지 후 복구 방법은 두 가지다.  
+탐지 후 복구 방법은 두 가지다.
+
 - **Process Termination** : 프로세스 종료  
-데드락에 걸린 프로세스를 강제 종료하는 방법으로 데드락에 걸린 프로세스를 전부 종료하거나, 데드락이 풀릴 때까지 하나씩 종료하며 확인한다.
+  데드락에 걸린 프로세스를 강제 종료하는 방법으로 데드락에 걸린 프로세스를 전부 종료하거나, 데드락이 풀릴 때까지 하나씩 종료하며 확인한다.
 - **Resource Preemption** : 자원 선점  
-데드락에 걸린 프로세스에서 자원을 강제로 빼앗아 다른 프로세스에 할당하는 방법이다.  
+  데드락에 걸린 프로세스에서 자원을 강제로 빼앗아 다른 프로세스에 할당하는 방법이다.
 
 - **Single Instance** : Wait-for Graph를 사용  
-Resource-Allocation Graph에서 자원 노드를 제거하고 스레드 간의 대기 관계만 남긴 그래프로, 사이클이 존재하면 데드락이 발생한 것
+  Resource-Allocation Graph에서 자원 노드를 제거하고 스레드 간의 대기 관계만 남긴 그래프로, 사이클이 존재하면 데드락이 발생한 것
 - **Multiple Instance** : Safety Algorithm과 유사한 방식으로 탐지
 
 
